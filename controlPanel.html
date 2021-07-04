@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Control Panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1> Control Panel </h1>
+    <form action="mergeControlPanels.php" method="post">
+
+        <button type="submit" id="button1" name="forward">forward</button>
+        <button type="submit" id="button2" name="left">left</button>
+        <button type="submit" id="button3" name="stop">stop</button>
+        <button type="submit" id="button4" name="right">right</button>
+        <button type="submit" id="button5" name="backward">backward</button>
+
+    </form>
+
+    <script>
+        window.watsonAssistantChatOptions = {
+            integrationID: "1adf75e4-912a-468d-8792-baea13b32e3c", // The ID of this integration.
+            region: "us-south", // The region your integration is hosted in.
+            serviceInstanceID: "95bbbc00-f2e9-4015-b68f-9e37c0a3e99d", // The ID of your service instance.
+            onLoad: function(instance) { instance.render(); }
+          };
+        setTimeout(function(){
+          const t=document.createElement('script');
+          t.src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
+          document.head.appendChild(t);
+        });
+      </script>
+
+</body>
+
+</html>

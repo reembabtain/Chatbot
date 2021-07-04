@@ -1,0 +1,506 @@
+{
+  "intents": [
+    {
+      "intent": "date",
+      "examples": [
+        {
+          "text": "Friday"
+        },
+        {
+          "text": "Monday"
+        },
+        {
+          "text": "Saturday"
+        },
+        {
+          "text": "Sunday"
+        },
+        {
+          "text": "Thursday"
+        },
+        {
+          "text": "Tuesday"
+        },
+        {
+          "text": "Wednesday"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "greeting",
+      "examples": [
+        {
+          "text": "movies"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "movies",
+      "examples": [
+        {
+          "text": "Cruella"
+        },
+        {
+          "text": "Fatherhood"
+        },
+        {
+          "text": "Quite Place"
+        },
+        {
+          "text": "Tom and Jerry"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "tickets",
+      "examples": [
+        {
+          "text": "1"
+        },
+        {
+          "text": "2"
+        },
+        {
+          "text": "3"
+        },
+        {
+          "text": "4"
+        },
+        {
+          "text": "5"
+        },
+        {
+          "text": "6"
+        },
+        {
+          "text": "7"
+        },
+        {
+          "text": "8"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "time",
+      "examples": [
+        {
+          "text": "1:00 PM"
+        },
+        {
+          "text": "2:00 PM"
+        },
+        {
+          "text": "3:00 PM"
+        },
+        {
+          "text": "4:00 PM"
+        },
+        {
+          "text": "5:00 PM"
+        },
+        {
+          "text": "today"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "sys-date",
+      "values": [],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_2_1625063309155",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "time",
+      "output": {
+        "generic": [
+          {
+            "title": "Choose number of Tickets",
+            "options": [
+              {
+                "label": "1",
+                "value": {
+                  "input": {
+                    "text": "1"
+                  }
+                }
+              },
+              {
+                "label": "2",
+                "value": {
+                  "input": {
+                    "text": "2"
+                  }
+                }
+              },
+              {
+                "label": "3",
+                "value": {
+                  "input": {
+                    "text": "3"
+                  }
+                }
+              },
+              {
+                "label": "4",
+                "value": {
+                  "input": {
+                    "text": "4"
+                  }
+                }
+              },
+              {
+                "label": "5",
+                "value": {
+                  "input": {
+                    "text": "5"
+                  }
+                }
+              },
+              {
+                "label": "6",
+                "value": {
+                  "input": {
+                    "text": "6"
+                  }
+                }
+              },
+              {
+                "label": "7",
+                "value": {
+                  "input": {
+                    "text": "7"
+                  }
+                }
+              },
+              {
+                "label": "8",
+                "value": {
+                  "input": {
+                    "text": "8"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "conditions": "#time",
+      "dialog_node": "node_2_1625061246535",
+      "previous_sibling": "node_8_1624984202160"
+    },
+    {
+      "type": "standard",
+      "title": "tickets",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Successfully Booked, Thank you!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#tickets",
+      "dialog_node": "node_2_1625063309155",
+      "previous_sibling": "node_2_1625061246535"
+    },
+    {
+      "type": "standard",
+      "title": "date",
+      "output": {
+        "generic": [
+          {
+            "title": "Choose the Time",
+            "options": [
+              {
+                "label": "1:00 PM",
+                "value": {
+                  "input": {
+                    "text": "1:00 PM"
+                  }
+                }
+              },
+              {
+                "label": "2:00 PM",
+                "value": {
+                  "input": {
+                    "text": "2:00 PM"
+                  }
+                }
+              },
+              {
+                "label": "3:00 PM",
+                "value": {
+                  "input": {
+                    "text": "3:00 PM"
+                  }
+                }
+              },
+              {
+                "label": "4:00 PM",
+                "value": {
+                  "input": {
+                    "text": "4:00 PM"
+                  }
+                }
+              },
+              {
+                "label": "5:00 PM",
+                "value": {
+                  "input": {
+                    "text": "5:00 PM"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "conditions": "#date",
+      "dialog_node": "node_8_1624984202160",
+      "previous_sibling": "node_8_1625065426052"
+    },
+    {
+      "type": "standard",
+      "title": "movies",
+      "output": {
+        "generic": [
+          {
+            "title": "Choose the Day",
+            "options": [
+              {
+                "label": "Saturday",
+                "value": {
+                  "input": {
+                    "text": "Saturday"
+                  }
+                }
+              },
+              {
+                "label": "Sunday",
+                "value": {
+                  "input": {
+                    "text": "Sunday"
+                  }
+                }
+              },
+              {
+                "label": "Monday",
+                "value": {
+                  "input": {
+                    "text": "Monday"
+                  }
+                }
+              },
+              {
+                "label": "Tuesday",
+                "value": {
+                  "input": {
+                    "text": "Tuesday"
+                  }
+                }
+              },
+              {
+                "label": "Wednesday ",
+                "value": {
+                  "input": {
+                    "text": "Wednesday "
+                  }
+                }
+              },
+              {
+                "label": "Thursday",
+                "value": {
+                  "input": {
+                    "text": "Thursday"
+                  }
+                }
+              },
+              {
+                "label": "Friday",
+                "value": {
+                  "input": {
+                    "text": "Friday"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "conditions": "#movies",
+      "dialog_node": "node_8_1625065426052",
+      "previous_sibling": "node_9_1624982144687"
+    },
+    {
+      "type": "standard",
+      "title": "greeting",
+      "output": {
+        "generic": [
+          {
+            "title": "Quite Place II",
+            "source": "https://m.media-amazon.com/images/M/MV5BMTE2ODU4NDEtNmRjNS00OTk1LTg4NmMtNTAzYzVlNzJmYjgzXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_.jpg",
+            "description": "Drama, Horror, Sci-Fi, Thriller",
+            "response_type": "image"
+          },
+          {
+            "title": "Cruella",
+            "source": "https://m.media-amazon.com/images/M/MV5BOWI5YTUxOWEtZmRiZS00ZmQxLWE2NzctYTRiODA2NzE1ZjczXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg",
+            "description": "Comedy, Crime",
+            "response_type": "image"
+          },
+          {
+            "title": "Fatherhood",
+            "source": "https://m.media-amazon.com/images/M/MV5BMzU5YWYzZGMtNTE2My00NDE0LTgxNWYtZDYzYjI2YzM3OWJlXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg",
+            "description": "Comedy, Drama",
+            "response_type": "image"
+          },
+          {
+            "title": "Tom and Jerry",
+            "source": "https://m.media-amazon.com/images/M/MV5BYzE3ODhiNzAtOWY4MS00NTdiLThmNDctNDM4NjRiNGFmYjI1XkEyXkFqcGdeQXVyMTI2ODM1ODUw._V1_UY1200_CR165,0,630,1200_AL_.jpg",
+            "description": "Animation, Comedy, Family",
+            "response_type": "image"
+          },
+          {
+            "title": "What movie do you like to watch?",
+            "options": [
+              {
+                "label": "Quite Place",
+                "value": {
+                  "input": {
+                    "text": "Quite Place"
+                  }
+                }
+              },
+              {
+                "label": "Cruella",
+                "value": {
+                  "input": {
+                    "text": "Cruella"
+                  }
+                }
+              },
+              {
+                "label": "Fatherhood",
+                "value": {
+                  "input": {
+                    "text": "Fatherhood"
+                  }
+                }
+              },
+              {
+                "label": "Tom and Jerry",
+                "value": {
+                  "input": {
+                    "text": "Tom and Jerry"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "conditions": "#greeting",
+      "dialog_node": "node_9_1624982144687",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Welcome to XX cinema, If you want to see the available movies write movies."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [
+    {
+      "text": "5:00 PM"
+    }
+  ],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "intent_classification": {
+      "training_backend_version": "v2"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "talk",
+  "language": "en",
+  "description": ""
+}
